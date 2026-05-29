@@ -6,7 +6,9 @@
 
 **Prerequisites:**
 - A running SONiC device (lab leaf, e.g. `leaf00`) reachable over SSH
-- Admin credentials (`admin` user)
+- cisco/cisco123 is the username/password to login to the host/controller node
+- Admin credentials (`admin` user) for SONiC Device
+- Password credentials (`password`) for SONiC Device
 - Basic Linux / CLI familiarity
 
 ---
@@ -72,7 +74,7 @@ SONiC is Linux underneath, with a CLI layer (`show`, `config`), an FRR routing s
 
 ![alt text](image-2.png)
 
-> **Note:** Some nodes may be unavailable due to virtual-host resource limit> s. You only need access to one of the four devices (leaf00/01 or spine00/01) to work through this introductory SONiC lab.
+> **Note:** Some nodes may be unavailable due to virtual-host resource limits.> You only need access to one of the four devices (leaf00/01 or spine00/01) to work through this introductory SONiC lab.
 
 ## Lab Setup Verification
 
@@ -100,7 +102,7 @@ ping -c 3 leaf00
 ### Step 3: SSH Access
 ```bash
 ssh admin@leaf00
-# Default password: password (or as provided)
+# Default password: password (password)
 ```
 **Expected Output:**
 
@@ -128,7 +130,7 @@ Expected: a prompt like `admin@leaf00:~$`
 
 ---
 
-## Exercise 1: Device & Platform Identity (10 minutes)
+## Exercise 1: Device & Platform Identity
 
 ### Task 1.1: Check the SONiC Version
 ```bash
@@ -160,8 +162,7 @@ REPOSITORY                    TAG                                 IMAGE ID      
 docker-orchagent              202405c.38617-int-20260325.164610   d67fa45d56de   385MB
 docker-orchagent              latest                              d67fa45d56de   385MB
 ...
-...
-
+<snip>
 ```
 Decoding the SONiC version string
 
@@ -175,9 +176,8 @@ Decoding the SONiC version string
 - Hardware / platform string
 - Uptime
 
-**Quick filters:**
+**Quick filters: - ust the version line **
 ```bash
-# Just the version line
 show version | grep -i "software version"
 ```
 
